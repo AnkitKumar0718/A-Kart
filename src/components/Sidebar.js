@@ -48,7 +48,7 @@ function Sidebar() {
               <FiTrash2 />
             </div>
           </div>
-          <Link to={'/checkout'} className='bg-primary flex p-4 justify-center 
+          <Link to={'/checkout'} onClick={handleClose} className='bg-primary flex p-4 justify-center 
           items-center text-white font-mediumw-full'>
             Checkout
           </Link>
