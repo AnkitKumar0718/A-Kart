@@ -9,22 +9,24 @@ import Sidebar from './components/Sidebar';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Toast from './components/Toast';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
     <div className="overflow-hidden">
-<Router>
-  <Header/>
-  <Routes>
-    <Route path='/' element={<Home/>}/>
-    <Route path='/product/:id' element={<ProductDetails/>}/>
-    <Route path='/checkout' element={<Checkout/>}/>
-    <Route path='/wishlist' element={<Wishlist/>}/>
-  </Routes>
-  <Sidebar/>
-  <Footer/>
-  <Toast/>
-</Router>
+      <Router>
+        <ScrollToTop />
+        <Header />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/product/:id' element={<ProductDetails />} />
+          <Route path='/checkout' element={<Checkout />} />
+          <Route path='/wishlist' element={<Wishlist />} />
+        </Routes>
+        <Sidebar />
+        <Footer />
+        <Toast />
+      </Router>
     </div>
   );
 }

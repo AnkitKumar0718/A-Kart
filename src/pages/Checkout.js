@@ -59,7 +59,7 @@ function Checkout() {
   }
 
   return (
-    <section className="py-12 px-4">
+    <section className="pt-24 pb-12 px-4">
       <div className="container mx-auto max-w-4xl">
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
