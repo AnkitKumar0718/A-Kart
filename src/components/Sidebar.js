@@ -48,10 +48,6 @@ function Sidebar() {
               <FiTrash2 />
             </div>
           </div>
-          <Link to={'/'} className='bg-primary flex p-4 justify-center 
-          items-center text-primary font-medium w-full'>
-            View cart
-          </Link>
           <Link to={'/checkout'} className='bg-primary flex p-4 justify-center 
           items-center text-white font-mediumw-full'>
             Checkout
