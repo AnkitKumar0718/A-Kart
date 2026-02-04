@@ -22,7 +22,7 @@ function Home() {
         <div className='w-full'>
 
           {/* Filters Section - Compact Row */}
-          <div className='mb-6 bg-white py-4 px-4 border-y'>
+          <div className='mb-6 bg-white py-4 px-2 border-y'>
             <div className='container mx-auto flex flex-col md:flex-row items-center justify-between gap-4'>
               <div className='flex items-center gap-4 w-full md:w-auto'>
                 <CategoryFilter />
@@ -35,7 +35,7 @@ function Home() {
           </div>
 
           {/* Products Grid - Original Spacing Layout */}
-          <div className='container mx-auto px-4'>
+          <div className='container mx-auto lg:px-0 px-8'>
             <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-10 py-8'>
               {loading ? (
                 skeletons.map((_, index) => <Skeleton key={index} />)

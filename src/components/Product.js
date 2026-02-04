@@ -5,29 +5,42 @@ import { BsHeart, BsHeartFill } from "react-icons/bs";
 import { CartContext } from '../contexts/CartContext';
 import { WishlistContext } from '../contexts/WishlistContext';
 import { ToastContext } from '../contexts/ToastContext';
-
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
 function Product({ product }) {
   const { id, title, category, image, price } = product;
   const { addToCart } = useContext(CartContext);
   const { toggleWishlist, isInWishlist } = useContext(WishlistContext);
   const { addToast } = useContext(ToastContext);
+  const { user } = useAuth();
+  const navigate = useNavigate();
   const inWishlist = isInWishlist(id);
 
   const handleAddToCart = () => {
+    if (!user) {
+      navigate('/login');
+      return;
+    }
     addToCart(product, id);
     addToast('Item added to cart!', 'success');
   };
 
   const handleToggleWishlist = () => {
+    if (!user) {
+      navigate('/login');
+      return;
+    }
     toggleWishlist(product);
     const message = inWishlist ? 'Removed from wishlist' : 'Added to wishlist!';
     addToast(message, 'success');
   };
 
   return (
-    <div className='bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 h-full flex flex-col'>
+    <div className='bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg 
+    transition-shadow duration-300 h-full flex flex-col'>
       {/* Image Section */}
-      <div className='bg-gray-100 h-48 relative overflow-hidden group flex items-center justify-center'>
+      <div className='bg-gray-100 h-48 relative overflow-hidden group flex 
+      items-center justify-center'>
         <img
           className='w-full h-full object-contain p-4 group-hover:scale-110 transition duration-300'
           src={image}
@@ -43,13 +56,13 @@ function Product({ product }) {
           >
             <BsPlus className='text-lg' />
           </button>
-          <Link
-            to={`/product/${id}`}
+          <button
+            onClick={() => user ? navigate(`/product/${id}`) : navigate('/login')}
             className='bg-white rounded-full text-gray-800 p-1.5 transform hover:scale-110 transition flex items-center justify-center hover:bg-gray-200'
             title='Quick view'
           >
             <BsEyeFill className='text-lg' />
-          </Link>
+          </button>
           <button
             onClick={handleToggleWishlist}
             className={`rounded-full p-1.5 transform hover:scale-110 transition flex items-center justify-center ${inWishlist

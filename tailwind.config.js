@@ -7,7 +7,7 @@ module.exports = {
     },
     container: {
       padding: {
-        DEFAULT: '30px',
+        DEFAULT: '15px',
         lg: '0',
       },
     },
@@ -16,6 +16,7 @@ module.exports = {
       md: '768px',
       lg: '1024px',
       xl: '1440px',
+      '2xl': '1536px',
     },
 
     extend: {

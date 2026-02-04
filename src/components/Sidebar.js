@@ -40,7 +40,7 @@ function Sidebar() {
         <div className=' flex flex-col gap-y-3 py-4 mt-4'>
           <div className='flex w-full justify-between items-center'>
             <div className='uppercase font-semibold'>
-              <span className='mr-2'>Total:</span>$ {parseFloat(total).toFixed(2)}
+              <span className='mr-2'>Total:</span>$ {total ? parseFloat(total).toFixed(2) : '0.00'}
             </div>
             <div onClick={clearCart} className='cursor-pointer py-4 bg-red-500 text-white w-10
             h-10 flex justify-center items-center text-xl'>

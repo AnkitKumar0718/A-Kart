@@ -49,7 +49,7 @@ function Cartitem({ item }) {
               ${price}</div>
             <div className=' flex flex-1 justify-end 
             items-center text-primary font-medium'>
-              {`$ ${parseFloat(price * amount).toFixed(2)}`}</div>
+              {`$ ${item.price && item.amount ? parseFloat(item.price * item.amount).toFixed(2) : '0.00'}`}</div>
           </div>
         </div>
       </div>
